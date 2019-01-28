@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for movie in movie_list %}
+                <div class="card col-4" style="width: 18rem;">
+                  <img src='static/images/{{movie[0]}}.jpg' class="card-img-top" alt="movieImg">
+                  <div class="card-body">
+                    <h5 class="card-title">{{movie[1]}}</h5>
+                    <p class="card-text">{{movie[2]}}</p>
+                    <p class="card-text">{{movie[3]}}</p>
+                    <p class="card-text">{{movie[4]}}</p>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                      영상보기
+                    </button>
+                  </div>
+                </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                      </div>
+                      <div class="modal-body">
+                        <video tabindex="-1" class="video-stream html5-main-video" controlslist="nodownload" style="width: 853px; height: 480px; left: 0px; top: 0px;" src="blob:https://www.youtube.com/acdcf6d4-97ae-4db1-baf9-fa291e26c827"></video>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
